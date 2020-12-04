@@ -1,10 +1,10 @@
-body{
+.body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
     background-color: grey;
 }
 
-section{
+.section{
     background-color: white;
     border: solid 2px black;
     padding: 10px;
@@ -16,11 +16,11 @@ section{
 .show {
     display: block;
 }
-h1{
+.h1{
     text-align: center;
 }
 
-p{
+.p{
     padding: 0 10%;
 }
 
