@@ -53,7 +53,7 @@ function startQuiz() {
 
   function questionClick() {
     if (this.value !== questions[currentQuestionIndex].answer) {
-      time -= 15;
+      time -= 10;
       if (time < 0) {
         time = 0;
       }
@@ -90,19 +90,19 @@ function saveHighscore() {
     var initials = initialsEl.value.trim();
     if (initials !== "") {
   
-      var highscores =
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
+     var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+      highscores.push(newScore);
+      localStorage.setItem("highscores", JSON.stringify(highscores));
+      window.location.href = "score.html";
+      console.log(saveHighscore);
   
       var newScore = {
         score: time,
         initials: initials
       };
   
-      highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
-  
       
-      window.location.href = "highScore.html";
     }
   }
   function checkForEnter(event) {
@@ -111,11 +111,8 @@ function saveHighscore() {
     }
   }
   
-  
   submitBtn.onclick = saveHighscore;
-  
   startBtn.onclick = startQuiz;
-  
   initialsEl.onkeyup = checkForEnter;
 
   function printHighscores() {
@@ -143,5 +140,6 @@ function saveHighscore() {
   document.getElementById("clear").onclick = clearHighscores;
 
   printHighscores();
-
+  console.log(highscoreSectionEl);
+  
 
